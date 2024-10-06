@@ -1,7 +1,12 @@
-﻿namespace SignalR.EntityLayer.Entities
-{
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-    public class DiscountProduct
+namespace SignalR.DtoLayer.DiscountProductDto
+{
+    public class GetDiscountProductDto
     {
         public int Id { get; set; }
         public string Title { get; set; }
