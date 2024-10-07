@@ -23,6 +23,21 @@ builder.Services.AddScoped<ICategoryService, CategoryManager>();
 builder.Services.AddScoped<IDiscountProductDal, EfDiscountProductDal>();
 builder.Services.AddScoped<IDiscountProductService, DiscountProductManager>();
 
+builder.Services.AddScoped<IFeatureProductDal, EfFeatureProductDal>();
+builder.Services.AddScoped<IFeatureProductService, FeatureProductManager>();
+
+builder.Services.AddScoped<IContactDal, EfContactDal>();
+builder.Services.AddScoped<IContactService, ContactManager>();
+
+builder.Services.AddScoped<IProductDal, EfProductDal>();
+builder.Services.AddScoped<IProductService, ProductManager>();
+
+builder.Services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
+builder.Services.AddScoped<ISocialMediaService, SocialMediaManager>();
+
+builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
+
 
 builder.Services.AddControllers();
 

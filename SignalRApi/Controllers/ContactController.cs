@@ -32,6 +32,7 @@ namespace SignalRApi.Controllers
         [HttpPost]
         public IActionResult AddContact(CreateContactDto createContactDto)
         {
+             
             var value = _mapper.Map<Contact>(createContactDto);
             _contactService.TAdd(value);
             return Ok("Başarıyla eklendi.");
