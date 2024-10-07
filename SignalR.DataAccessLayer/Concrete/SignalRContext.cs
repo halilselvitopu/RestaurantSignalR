@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SignalR.EntityLayer.Entities;
-using SignalRApi.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

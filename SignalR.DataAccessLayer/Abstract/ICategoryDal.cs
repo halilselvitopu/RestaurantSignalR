@@ -1,4 +1,4 @@
-﻿using SignalRApi.Entities;
+﻿using SignalR.EntityLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

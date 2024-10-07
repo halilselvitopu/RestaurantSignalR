@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SignalR.BusinessLayer.Abstract
 {
-    internal interface IFeatureProductService : IGenericService<FeatureProduct>
+    public interface IFeatureProductService : IGenericService<FeatureProduct>
     {
     }
 }
