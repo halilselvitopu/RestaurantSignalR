@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using SignalR.BusinessLayer.Abstract;
 using SignalR.DtoLayer.ProductDto;
 using SignalR.EntityLayer.Entities;
+using System.Xml.Linq;
 
 namespace SignalRApi.Controllers
 {
@@ -37,12 +38,14 @@ namespace SignalRApi.Controllers
         [HttpPost]
         public IActionResult AddProduct(CreateProductDto createProductDto)
         {
-            var value = _mapper.Map<Product>(createProductDto);
-            _productService.TAdd(value);
-            return Ok("Başarıyla eklendi.");
-        }
+			createProductDto.Status = true;
+			var value = _mapper.Map<Product>(createProductDto);
+			createProductDto.CategoryId = value.CategoryId;
+			_productService.TAdd(value);
+			return Ok("Başarıyla eklendi.");
+		}
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteProduct(int id)
         {
             var value = _productService.TGetById(id);
@@ -53,12 +56,14 @@ namespace SignalRApi.Controllers
         [HttpPut]
         public IActionResult UpdateProduct(UpdateProductDto updateProductDto)
         {
-            var value = _mapper.Map<Product>(updateProductDto);
+			updateProductDto.Status = true;
+			var value = _mapper.Map<Product>(updateProductDto);
+            updateProductDto.CategoryId = value.CategoryId;
             _productService.TUpdate(value);
             return Ok("Başarıyla güncelledi.");
         }
 
-        [HttpGet("GetProductById")]
+        [HttpGet("{id}")]
         public IActionResult GetProductById(int id)
         {
             var value = _productService.TGetById(id);
