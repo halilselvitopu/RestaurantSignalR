@@ -36,7 +36,7 @@ namespace SignalRApi.Controllers
             return Ok("Başarıyla eklendi.");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteFeatureProduct(int id)
         {
              var value = _featureProductService.TGetById(id);
@@ -52,7 +52,7 @@ namespace SignalRApi.Controllers
             return Ok("Başarıyla güncelledi.");
         }
 
-        [HttpGet("GetFatureProductById")]
+        [HttpGet("{id}")]
         public IActionResult GetFatureProductById(int id)
         {
             var value = _featureProductService.TGetById(id);
