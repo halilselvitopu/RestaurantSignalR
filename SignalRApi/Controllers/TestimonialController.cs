@@ -30,6 +30,7 @@ namespace SignalRApi.Controllers
         [HttpPost]
         public IActionResult AddTestimonial(CreateTestimonialDto createTestimonialDto)
         {
+            createTestimonialDto.Status = true;
             var value = _mapper.Map<Testimonial>(createTestimonialDto);
             _testimonialService.TAdd(value);
             return Ok("Başarıyla eklendi.");
@@ -46,6 +47,7 @@ namespace SignalRApi.Controllers
         [HttpPut]
         public IActionResult UpdateTestimonial(UpdateTestimonialDto updateTestimonialDto)
         {
+            updateTestimonialDto.Status = true;
             var value = _mapper.Map<Testimonial>(updateTestimonialDto);
             _testimonialService.TUpdate(value);
             return Ok("Başarıyla güncelledi.");
