@@ -18,7 +18,12 @@ namespace SignalR.BusinessLayer.Concrete
             _productDal = productDal;
         }
 
-        public void TAdd(Product entity)
+		public int TGetProductCountByCategoryNameDrink()
+		{
+			return _productDal.GetProductCountByCategoryNameDrink();
+		}
+
+		public void TAdd(Product entity)
         {
             _productDal.Add(entity);
         }
@@ -38,7 +43,12 @@ namespace SignalR.BusinessLayer.Concrete
             return _productDal.GetById(id);
         }
 
-        public List<Product> TGetProductsWithCategories()
+		public int TGetProductCount()
+		{
+			return _productDal.GetProductCount();
+		}
+
+		public List<Product> TGetProductsWithCategories()
         {
             return _productDal.GetProductsWihtCategories();
         }
@@ -47,5 +57,25 @@ namespace SignalR.BusinessLayer.Concrete
         {
             _productDal.Update(entity);
         }
-    }
+
+		public int TGetProductCountByCategoryNameHamburger()
+		{
+			return _productDal.GetProductCountByCategoryNameHamburger();
+		}
+
+		public decimal TGetAverageProductPrice()
+		{
+			return _productDal.GetAverageProductPrice();
+		}
+
+		public IEnumerable<string> TGetMostExpensiveProductNames()
+		{
+			return _productDal.GetMostExpensiveProductNames();
+		}
+
+		public IEnumerable<string> TGetCheapestProductNames()
+		{
+			return _productDal.GetCheapestProductNames();
+		}
+	}
 }

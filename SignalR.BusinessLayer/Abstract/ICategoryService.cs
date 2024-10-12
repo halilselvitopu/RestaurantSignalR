@@ -9,5 +9,10 @@ namespace SignalR.BusinessLayer.Abstract
 {
     public interface ICategoryService : IGenericService<Category>
     {
-    }
+		int TGetCategoryCount();
+		int TGetActiveCategoryCount();
+		int TGetPassiveCategoryCount();
+
+
+	}
 }
