@@ -14,6 +14,7 @@ namespace SignalR.DataAccessLayer.Abstract
         int GetProductCountByCategoryNameHamburger();
         int GetProductCountByCategoryNameDrink();
         decimal GetAverageProductPrice();
+        decimal GetAverageHamburgerPrice();
 		IEnumerable<string> GetMostExpensiveProductNames();
 		IEnumerable<string> GetCheapestProductNames();
 	}
