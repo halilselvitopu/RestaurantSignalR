@@ -58,6 +58,12 @@ builder.Services.AddScoped<IOrderService, OrderManager>();
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 
+builder.Services.AddScoped<ICashRegisterDal, EfCashRegisterDal>();
+builder.Services.AddScoped<ICashRegisterService, CashRegisterManager>();
+
+builder.Services.AddScoped<ITableDal, EfTableDal>();
+builder.Services.AddScoped<ITableService, TableManager>();
+
 
 builder.Services.AddControllers();
 

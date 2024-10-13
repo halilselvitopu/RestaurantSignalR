@@ -57,5 +57,10 @@ namespace SignalR.BusinessLayer.Concrete
 		{
 			return _orderDal.GetLastOrderPrice();
 		}
+
+		public decimal TGetTodayTotalProfit()
+		{
+			return _orderDal.GetTodayTotalProfit();
+		}
 	}
 }
