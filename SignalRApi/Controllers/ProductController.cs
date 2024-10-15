@@ -77,6 +77,12 @@ namespace SignalRApi.Controllers
             return Ok(_mapper.Map<List<ResultProductWithCategoryDto>>(values));
         }
 
+        [HttpGet("GetMostPopularProducts")]
+        public IActionResult GetMostPopularProducts()
+        {
+            return Ok(_productService.TGetMostPopularProducts());
+        }
+
         [HttpPost]
         public IActionResult AddProduct(CreateProductDto createProductDto)
         {

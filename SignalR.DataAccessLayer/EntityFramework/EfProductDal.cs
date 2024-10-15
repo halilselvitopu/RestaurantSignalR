@@ -43,7 +43,13 @@ namespace SignalR.DataAccessLayer.EntityFramework
 			return context.Products.Where(x => x.Price == maxPrice).Select(p => p.Name).ToList();
 		}
 
-		public int GetProductCount()
+        public List<Product> GetMostPopularProducts()
+        {
+            using var context = new SignalRContext();
+            return context.Products.OrderBy(x => x.Id).Take(9).ToList();
+        }
+
+        public int GetProductCount()
 		{
 			using var context = new SignalRContext();
 			return context.Products.Count();

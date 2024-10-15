@@ -82,5 +82,10 @@ namespace SignalR.BusinessLayer.Concrete
 		{
 			return _productDal.GetAverageHamburgerPrice();
 		}
-	}
+
+        public List<Product> TGetMostPopularProducts()
+        {
+            return _productDal.GetMostPopularProducts();
+        }
+    }
 }

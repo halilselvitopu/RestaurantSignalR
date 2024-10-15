@@ -17,5 +17,6 @@ namespace SignalR.DataAccessLayer.Abstract
         decimal GetAverageHamburgerPrice();
 		IEnumerable<string> GetMostExpensiveProductNames();
 		IEnumerable<string> GetCheapestProductNames();
+        List<Product> GetMostPopularProducts();
 	}
 }

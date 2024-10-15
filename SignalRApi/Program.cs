@@ -64,6 +64,9 @@ builder.Services.AddScoped<ICashRegisterService, CashRegisterManager>();
 builder.Services.AddScoped<ITableDal, EfTableDal>();
 builder.Services.AddScoped<ITableService, TableManager>();
 
+builder.Services.AddScoped<ISliderDal, EfSliderDal>();
+builder.Services.AddScoped<ISliderService, SliderManager>();
+
 
 builder.Services.AddControllers();
 
