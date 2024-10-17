@@ -67,6 +67,9 @@ builder.Services.AddScoped<ITableService, TableManager>();
 builder.Services.AddScoped<ISliderDal, EfSliderDal>();
 builder.Services.AddScoped<ISliderService, SliderManager>();
 
+builder.Services.AddScoped<IBasketDal, EfBasketDal>();
+builder.Services.AddScoped<IBasketService, BasketManager>();
+
 
 builder.Services.AddControllers();
 
