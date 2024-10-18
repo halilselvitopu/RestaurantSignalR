@@ -35,16 +35,16 @@ namespace SignalRApi.Controllers
             return Ok("Başarıyla eklendi.");
         }
 
-        [HttpDelete("{id}")]
+		[HttpDelete("{id}")]
 		public IActionResult DeleteBooking(int id)
-        {
-            var value = _bookingService.TGetById(id);
-            _bookingService.TDelete(value);
-            return Ok("Başarıyla silindi.");
-        }
+		{
+			var value = _bookingService.TGetById(id);
+			_bookingService.TDelete(value);
+			return Ok("Başarılı bir şekilde silindi.");
+		}
 
 
-        [HttpPut]
+		[HttpPut]
         public IActionResult UpdateBooking(UpdateBookingDto updateBookingDto)
         {
             var value = _mapper.Map<Booking>(updateBookingDto);
