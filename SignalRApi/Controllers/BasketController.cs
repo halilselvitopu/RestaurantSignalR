@@ -25,7 +25,7 @@ namespace SignalRApi.Controllers
         [HttpGet]
         public IActionResult GetBasketByTableNumber(int id)
         {
-           return Ok(_basketService.TGetBasketByTableNumber(id)); 
+            return Ok(_basketService.TGetBasketByTableNumber(id));
         }
 
         [HttpPost]
@@ -34,11 +34,19 @@ namespace SignalRApi.Controllers
             var product = _productService.TGetById(createBasketDto.ProductId);
             var newBasket = _mapper.Map<Basket>(createBasketDto);
             newBasket.ProductCount = 1;
-            newBasket.Price = product.Price;
-            newBasket.TableId = 4;          
+            newBasket.Price = product.Price;          
+            newBasket.TableId = 4;
             _basketService.TAdd(newBasket);
             return Ok("Sepete Ürün Eklendi");
 
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteBasket(int id)
+        {
+            var value = _basketService.TGetById(id);
+            _basketService.TDelete(value);
+            return Ok("Başarıyla Silindi.");
         }
 
     }
