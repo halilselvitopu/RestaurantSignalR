@@ -80,19 +80,35 @@ public class TableController : Controller
         }
 
 
-        [HttpPost]
-        public async Task<IActionResult> UpdateTable(UpdateTableDto updateTableDto)
+    [HttpPost]
+    public async Task<IActionResult> UpdateTable(UpdateTableDto updateTableDto)
+    {
+        var client = _httpClientFactory.CreateClient();
+        var jsonData = JsonConvert.SerializeObject(updateTableDto);
+        StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+        var responseMessage = await client.PutAsync("https://localhost:7073/api/Table", stringContent);
+        if (responseMessage.IsSuccessStatusCode)
         {
-            var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(updateTableDto);
-            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("https://localhost:7073/api/Table", stringContent);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index");
-            }
-            return View();
-
+            return RedirectToAction("Index");
         }
+        return View();
     }
+
+		[HttpGet]
+		public async Task<IActionResult> TableListBySatatus()
+		{
+			var client = _httpClientFactory.CreateClient();
+			var responseMessage = await client.GetAsync("https://localhost:7073/api/Table/");
+			if (responseMessage.IsSuccessStatusCode)
+			{
+				var jsonData = await responseMessage.Content.ReadAsStringAsync();
+				var values = JsonConvert.DeserializeObject<List<ResultTableDto>>(jsonData);
+				return View(values);
+			}
+			return View();
+
+		}
+
+	}
+    
 
