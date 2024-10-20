@@ -16,7 +16,7 @@
 					</div>
 					<div class="card-body">
 						<div class="card-sub">
-							Ürün ile ilgili işlemleri gerçekleştirebilirsiniz :
+							Ürünler ile ilgili işlemleri aşağıdan gerçekleştirebilirsiniz.
 						</div>
 						<table class="table mt-3">
 							<thead>
@@ -36,11 +36,11 @@
 									count++;
 
 									<tr>
-										<td>@count</td>
+										<th>@count</th>
 										<td>@item.Name</td>
 										<td>@item.Price</td>
 										<td>@item.CategoryName</td>
-										<td>@item.Status</td>
+										<td>@(item.Status == true ? "Ürün Mevcut" : "Ürün Tükendi")</td>
 										<td><a href="/Product/DeleteProduct/@item.Id" class="btn btn-outline-danger">Sil</a></td>
 										<td><a href="/Product/UpdateProduct/@item.Id" class="btn btn-outline-warning">Güncelle</a></td>
 

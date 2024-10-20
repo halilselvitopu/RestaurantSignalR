@@ -18,7 +18,7 @@
                     </div>
                     <div class="card-body">
                         <div class="card-sub">
-                            Kategori ile ilgili işlemleri gerçekleştirebilirsiniz :
+                            Kategoriler ile ilgili işlemleri aşağıdan gerçekleştirebilirsiniz.
                         </div>
                         <table class="table mt-3">
                             <thead>
@@ -34,7 +34,7 @@
                                 {
                                     count++;
                                     <tr>
-                                        <td>@count</td>
+                                        <th>@count</th>
                                         <td>@item.Name</td>
                                         <td><a href="/Category/DeleteCategory/@item.Id" class="btn btn-outline-danger">Sil</a></td>
                                         <td><a href="/Category/UpdateCategory/@item.Id" class="btn btn-outline-warning">Güncelle</a></td>

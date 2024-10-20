@@ -17,15 +17,17 @@
                     </div>
                     <div class="card-body">
                         <div class="card-sub">
-                            Günün İndirimleri Listesi ile ilgili işlemleri gerçekleştirebilirsiniz: (Tema bütünlüğü için 2 adet indirimli ürün seçiniz).
+                            Günün İndirimleri Listesi ile ilgili işlemleri gerçekleştirebilirsiniz. Tema bütünlüğü için <strong> 2 adet</strong> kampanya seçiniz.
                         </div>
                         <table class="table mt-3">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Ürün</th>
+                                    <th scope="col">Kampanya</th>
                                     <th scope="col">İndirim Oranı</th>
                                     <th scope="col">Durumu</th>
+                                    <th scope="col">Aktif Yap</th>
+                                    <th scope="col">Pasif Yap</th>
                                     <th scope="col">Sil</th>
                                     <th scope="col">Güncelle</th>
                                 </tr>
@@ -35,10 +37,12 @@
                                 {
                                     count++;
                                     <tr>
-                                        <td>@count</td>
+                                        <th>@count</th>
                                         <td>@item.Title</td>
                                         <td>@item.Amount</td>
-                                        <td><a href="/DiscountProduct/ChangeDiscountProductStatus/@item.Id" class="btn btn-outline-warning">Durum</a></td>
+                                        <td>@(item.Status == false ? "İndirimde değil" : "İndirimde")</td>
+                                        <td><a href="/DiscountProduct/ChangeStatusToTrue/@item.Id" class="btn btn-outline-success">Aktif Yap</a></td>
+                                        <td><a href="/DiscountProduct/ChangeStatusToFalse/@item.Id" class="btn btn-outline-dark">Pasif Yap</a></td>
                                         <td><a href="/DiscountProduct/DeleteDiscountProduct/@item.Id" class="btn btn-outline-danger">Sil</a></td>
                                         <td><a href="/DiscountProduct/UpdateDiscountProduct/@item.Id" class="btn btn-outline-warning">Güncelle</a></td>
 
@@ -48,7 +52,7 @@
 
                             </tbody>
                         </table>
-                        <a href="/DiscountProduct/AddDiscountProduct/" class="btn btn-outline-primary">Yeni İndirimli Ürün Girişi</a>
+                        <a href="/DiscountProduct/AddDiscountProduct/" class="btn btn-outline-primary">Yeni Kampanya Girişi</a>
                     </div>
                 </div>
 

@@ -16,27 +16,27 @@
 						</div>
 						<div class="card-body">
 							<div class="form-group">
-								<label for="email">Ürün Adı</label>
+								<label>Ürün Adı</label>
 								<input type="text" class="form-control" asp-for="Name" />
 							</div>
 							<br />
 							<div class="form-group">
-								<label for="email">Ürün Fiyatı</label>
+								<label>Ürün Fiyatı</label>
 								<input type="text" class="form-control" asp-for="Price" />
 							</div>
 							<br />
 							<div class="form-group">
-								<label for="email">Ürün Görseli</label>
+								<label>Ürün Görseli</label>
 								<input type="text" class="form-control" asp-for="ImageUrl" />
 							</div>
 							<br />
 							<div class="form-group">
-								<label for="email">Ürün Kategorisi</label>
+								<label>Ürün Kategorisi</label>
 								@Html.DropDownListFor(x => x.CategoryId,(List<SelectListItem>)ViewBag.categoryNames, new {@class = "form-control"})
 							</div>
 							<br />
 							<div class="form-group">
-								<label for="email">Ürün Açıklaması</label>
+								<label>Ürün Açıklaması</label>
 								<textarea  class="form-control" asp-for="Description" rows="2" ></textarea>
 							</div>
 							<br />

@@ -9,5 +9,7 @@ namespace SignalR.DataAccessLayer.Abstract
 {
     public interface IDiscountProductDal : IGenericDal<DiscountProduct>
     {
+        void ChangeStatusToTrue(int id);
+        void ChangeStatusToFalse(int id);
     }
 }

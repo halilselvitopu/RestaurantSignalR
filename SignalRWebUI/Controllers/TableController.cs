@@ -95,7 +95,7 @@ public class TableController : Controller
     }
 
 		[HttpGet]
-		public async Task<IActionResult> TableListBySatatus()
+		public async Task<IActionResult> TableListByStatus()
 		{
 			var client = _httpClientFactory.CreateClient();
 			var responseMessage = await client.GetAsync("https://localhost:7073/api/Table/");

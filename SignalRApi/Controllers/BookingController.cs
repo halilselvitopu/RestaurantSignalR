@@ -30,6 +30,7 @@ namespace SignalRApi.Controllers
         [HttpPost]
         public IActionResult AddBooking(CreateBookingDto createBookingDto)
         {
+            createBookingDto.Description = "Rezervasyon Alındı";
             var value = _mapper.Map<Booking>(createBookingDto);
             _bookingService.TAdd(value);
             return Ok("Başarıyla eklendi.");
@@ -58,5 +59,20 @@ namespace SignalRApi.Controllers
             var value = _bookingService.TGetById(id);
             return Ok(_mapper.Map<GetBookingDto>(value));
         }
+
+        [HttpGet("ChangeBookingStatusToApproved/{id}")]
+        public IActionResult ChangeBookingStatusToApproved(int id)
+        {
+            _bookingService.TChangeBookingStatusToApproved(id);
+            return Ok("Rezervasyon durumu başarıyla değiştirildi.");
+        }
+
+        [HttpGet("ChangeBookingStatusToCancelled/{id}")]
+        public IActionResult ChangeBookingStatusToCancelled(int id)
+        {
+            _bookingService.TChangeBookingStatusToCancelled(id);
+            return Ok("Rezervasyon durumu başarıyla değiştirildi.");
+        }
+
     }
 }

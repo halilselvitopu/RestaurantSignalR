@@ -15,5 +15,6 @@ namespace SignalR.DtoLayer.BookingDto
         public string EMail { get; set; }
         public int NumberOfGuests { get; set; }
         public DateTime Date { get; set; }
+        public string Description { get; set; }
     }
 }
