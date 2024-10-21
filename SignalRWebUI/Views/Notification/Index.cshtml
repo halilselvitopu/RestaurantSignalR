@@ -16,7 +16,7 @@ div class="content">
                 </div>
                 <div class="card-body">
                     <div class="card-sub">
-                        Bildirim ile ilgili işlemleri gerçekleştirebilirsiniz :
+                        Bildirim ile ilgili işlemleri aşağıdan gerçekleştirebilirsiniz.
                     </div>
                     <table class="table mt-3">
                         <thead>
@@ -36,9 +36,9 @@ div class="content">
                             {
                                 count++;
                                 <tr>
-                                    <td>@count</td>
-                                    <td>@item.Description</td>                                                              
-                                    <td>@item.Date</td>
+                                    <th>@count</th>
+                                    <td>@item.Description</td>
+                                    <td>@item.Date.ToString("dd MMM yyyy")</td>
                                     @if (item.Status == true)
                                     {
                                         <td>Okundu</td>
