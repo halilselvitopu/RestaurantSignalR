@@ -28,6 +28,13 @@ namespace SignalRApi.Controllers
             return Ok(_mapper.Map<List<ResultDiscountProductDto>>(values));
         }
 
+
+        [HttpGet("GetDiscountProductsByStatus")]
+        public IActionResult GetDiscountProductsByStatus()
+        {
+            return Ok(_discountProductService.TGetDiscountProductByStatus());
+        }
+
         [HttpPost]
         public IActionResult AddDiscountProduct(CreateDiscountProductDto createDiscountProductDto)
         {

@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 
 namespace SignalR.DataAccessLayer.Abstract
 {
-    public interface IDiscountProductDal : IGenericDal<DiscountProduct>
+    public interface IMessageDal : IGenericDal<Message>
     {
-        void ChangeStatusToTrue(int id);
-        void ChangeStatusToFalse(int id);
-        List<DiscountProduct> GetDiscountProductByStatus();
     }
 }
