@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SignalR.DtoLayer.FeatureProductDto
+﻿namespace SignalRWebUI.Dtos.SliderDtos
 {
-    public class UpdateFeatureProductDto
+    public class GetSliderDto
     {
         public int Id { get; set; }
         public string Title1 { get; set; }

@@ -1,4 +1,4 @@
-﻿@model List<ResultFeatureProductDto>
+﻿@model List<ResultSliderDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
@@ -16,17 +16,17 @@
                     </div>
                     <div class="card-body">
                         <div class="card-sub">
-                            Öne çıkan ürünler ile ilgili işlemleri gerçekleştirebilirsiniz:
+                            Öne çıkan ürünler ile ilgili işlemleri aşağıdan gerçekleştirebilirsiniz. Lütfen sadece <strong>1 adet</strong> liste oluşturunuz.
                         </div>
                         <table class="table mt-3">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Ürün 1</th>
-                                    <th scope="col">Ürün 2</th>
-                                    <th scope="col">Ürün 3</th>
                                     <th scope="col">Açıklama 1</th>
+                                    <th scope="col">Ürün 2</th>
                                     <th scope="col">Açıklama 2</th>
+                                    <th scope="col">Ürün 3</th>
                                     <th scope="col">Açıklama 3</th>
                                     <th scope="col">Sil</th>
                                     <th scope="col">Güncelle</th>
@@ -37,15 +37,15 @@
                                 {
                                     count++;
                                     <tr>
-                                        <td>@count</td>
+                                        <th>@count</th>
                                         <td>@item.Title1</td>
-                                        <td>@item.Title2</td>
-                                        <td>@item.Title3</td>
                                         <td>@item.Description1</td>
+                                        <td>@item.Title2</td>
                                         <td>@item.Description2</td>
+                                        <td>@item.Title3</td>    
                                         <td>@item.Description3</td>
-                                        <td><a href="/FeatureProduct/DeleteFeatureProduct/@item.Id" class="btn btn-outline-danger">Sil</a></td>
-                                        <td><a href="/FeatureProduct/UpdateFeatureProduct/@item.Id" class="btn btn-outline-warning">Güncelle</a></td>
+                                        <td><a href="/Slider/DeleteSlider/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+                                        <td><a href="/Slider/UpdateSlider/@item.Id" class="btn btn-outline-warning">Güncelle</a></td>
 
                                     </tr>
 
@@ -53,7 +53,7 @@
 
                             </tbody>
                         </table>
-                        <a href="/FeatureProduct/AddFeatureProduct/" class="btn btn-outline-primary">Yeni Öne Çıkan Ürün Girişi</a>
+                        <a href="/Slider/AddSlider/" class="btn btn-outline-primary">Yeni Öne Çıkan Ürün Girişi</a>
                     </div>
                 </div>
 
