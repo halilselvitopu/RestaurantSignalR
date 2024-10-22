@@ -1,0 +1,51 @@
+﻿@model UpdateUserDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Profil Ayarları</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<form method="post">
+					<div class="card">
+						<div class="card-header">
+							<div class="card-title">Şifre ve Bilgi Güncelleme Sayfası</div>
+						</div>
+						<div class="card-body">
+							<div class="form-group">
+								<label>Ad</label>
+								<input type="text" class="form-control" asp-for="FirstName" />
+								<br />
+								<label>Soyad</label>
+								<input type="text" class="form-control" asp-for="LastName" />
+								<br />
+								<label>Mail Adresi</label>
+								<input type="email" class="form-control" asp-for="Email" />
+								<br />
+								<label>Kullanıcı Adı</label>
+								<input type="text" class="form-control" asp-for="Username" />
+								<br />
+								<label>Şifre</label>
+								<input type="password" class="form-control" asp-for="Password" />
+								<br />
+								<label>Şifreyi Onayla</label>
+								<input type="password" class="form-control" asp-for="ConfirmPassword" />
+								<br />
+
+							</div>
+						</div>
+						<div class="card-action">
+							<button class="btn btn-success">Bilgileri Güncelle</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
