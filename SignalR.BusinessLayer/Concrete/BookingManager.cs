@@ -48,6 +48,11 @@ namespace SignalR.BusinessLayer.Concrete
             return _bookingDal.GetById(id);
         }
 
+        public int TGetTotalBookingCount()
+        {
+            return _bookingDal.GetTotalBookingCount();
+        }
+
         public void TUpdate(Booking entity)
         {
             _bookingDal.Update(entity);

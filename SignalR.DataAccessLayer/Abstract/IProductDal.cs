@@ -18,5 +18,9 @@ namespace SignalR.DataAccessLayer.Abstract
 		IEnumerable<string> GetMostExpensiveProductNames();
 		IEnumerable<string> GetCheapestProductNames();
         List<Product> GetMostPopularProducts();
+        decimal GetSteakBurgerPrice();
+        decimal GetTotalPriceByDrinks();
+        decimal GetTotalPriceBySalads();
+
 	}
 }

@@ -36,16 +36,16 @@ namespace SignalRApi.Controllers
             return Ok("Başarıyla eklendi.");
         }
 
-		[HttpDelete("{id}")]
-		public IActionResult DeleteBooking(int id)
-		{
-			var value = _bookingService.TGetById(id);
-			_bookingService.TDelete(value);
-			return Ok("Başarılı bir şekilde silindi.");
-		}
+        [HttpDelete("{id}")]
+        public IActionResult DeleteBooking(int id)
+        {
+            var value = _bookingService.TGetById(id);
+            _bookingService.TDelete(value);
+            return Ok("Başarılı bir şekilde silindi.");
+        }
 
 
-		[HttpPut]
+        [HttpPut]
         public IActionResult UpdateBooking(UpdateBookingDto updateBookingDto)
         {
             var value = _mapper.Map<Booking>(updateBookingDto);
@@ -72,6 +72,12 @@ namespace SignalRApi.Controllers
         {
             _bookingService.TChangeBookingStatusToCancelled(id);
             return Ok("Rezervasyon durumu başarıyla değiştirildi.");
+        }
+
+        [HttpGet("GetTotalBookingCount")]
+        public IActionResult GetTotalBookingCount()
+        {
+            return Ok(_bookingService.TGetTotalBookingCount());
         }
 
     }

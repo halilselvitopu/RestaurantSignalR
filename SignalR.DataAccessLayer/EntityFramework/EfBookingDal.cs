@@ -31,5 +31,11 @@ namespace SignalR.DataAccessLayer.EntityFramework
             value.Description = "Rezervasyon İptal Edildi";
             context.SaveChanges();
         }
+
+        public int GetTotalBookingCount()
+        {
+            using var context = new SignalRContext();
+            return context.Bookings.Count();
+        }
     }
 }

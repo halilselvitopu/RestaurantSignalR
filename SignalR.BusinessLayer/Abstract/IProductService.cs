@@ -18,7 +18,10 @@ namespace SignalR.BusinessLayer.Abstract
         IEnumerable<string> TGetCheapestProductNames();
         decimal TGetAverageHamburgerPrice();
         List<Product> TGetMostPopularProducts();
-
+        decimal TGetSteakBurgerPrice();
+        decimal TGetTotalPriceByDrinks();
+        decimal TGetTotalPriceBySalads();
+        
 
     }
 }

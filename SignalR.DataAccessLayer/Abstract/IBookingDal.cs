@@ -11,5 +11,6 @@ namespace SignalR.DataAccessLayer.Abstract
     {
         void ChangeBookingStatusToApproved(int id);
         void ChangeBookingStatusToCancelled(int id);
+        int GetTotalBookingCount();
     }
 }

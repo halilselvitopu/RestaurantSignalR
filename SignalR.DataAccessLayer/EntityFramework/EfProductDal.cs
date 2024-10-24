@@ -69,9 +69,30 @@ namespace SignalR.DataAccessLayer.EntityFramework
 
 		public List<Product> GetProductsWihtCategories()
 		{
-			var context = new SignalRContext();
+			using var context = new SignalRContext();
 			var values = context.Products.Include(p => p.Category).ToList();
 			return values;
 		}
-	}
+
+        public decimal GetSteakBurgerPrice()
+        {
+           using var context = new SignalRContext();
+		   return context.Products.Where(x => x.Name == "Steak Burger").Select(x => x.Price).FirstOrDefault();
+        }
+
+        public decimal GetTotalPriceByDrinks()
+        {
+			using var context = new SignalRContext();
+			int id = context.Categories.Where(x => x.Name == "İçecek").Select(x => x.Id).FirstOrDefault();
+			return context.Products.Where(x => x.Id == id).Sum(x => x.Price);
+
+        }
+
+        public decimal GetTotalPriceBySalads()
+        {
+            using var context = new SignalRContext();
+            int id = context.Categories.Where(x => x.Name == "Salata").Select(x => x.Id).FirstOrDefault();
+            return context.Products.Where(x => x.Id == id).Sum(x => x.Price);
+        }
+    }
 }

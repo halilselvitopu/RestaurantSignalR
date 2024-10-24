@@ -87,6 +87,38 @@ namespace SignalRApi.Hubs
             var tableCount = _tableService.TGetTotalTableCount();
             await Clients.All.SendAsync("ReceiveTableCount", tableCount);
 
+			var averageProductPrice = _productService.TGetAverageProductPrice();
+			await Clients.All.SendAsync("ReceiveAvgProductPrice", averageProductPrice);
+
+            var averageHamburgerPrice = _productService.TGetAverageHamburgerPrice();
+            await Clients.All.SendAsync("ReceiveAvgHamburgerPrice", averageHamburgerPrice);
+
+            var totalDrinkCount = _productService.TGetProductCountByCategoryNameDrink();
+            await Clients.All.SendAsync("ReceiveTotalDrinkCount", totalDrinkCount);
+
+            var totalOrderCount = _productService.TGetProductCountByCategoryNameDrink();
+            await Clients.All.SendAsync("ReceiveTotalOrderCount", totalOrderCount);
+
+            var steakBurgerPrice = _productService.TGetSteakBurgerPrice();
+            await Clients.All.SendAsync("ReceiveSteakBurgerPrice", steakBurgerPrice);
+
+            var totalPriceDrinks = _productService.TGetTotalPriceByDrinks();
+            await Clients.All.SendAsync("ReceiveTotalPriceDrinks", totalPriceDrinks);
+
+            var totalPriceSalads = _productService.TGetTotalPriceBySalads();
+            await Clients.All.SendAsync("ReceiveTotalPriceSalads", totalPriceSalads);
+
+            var categoryCount = _categoryService.TGetCategoryCount();
+            await Clients.All.SendAsync("ReceiveCategoryCount", categoryCount);
+
+            var productCount = _productService.TGetProductCount();
+            await Clients.All.SendAsync("ReceiveProductCount", productCount);
+
+            var bookingCount = _bookingService.TGetTotalBookingCount();
+            await Clients.All.SendAsync("ReceiveBookingCount", bookingCount);
+
+
+
         }
 
 		public async Task GetBookingList()
