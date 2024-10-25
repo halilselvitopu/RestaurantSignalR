@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QRCoder;
-using SkiaSharp;
 
 namespace SignalRWebUI.Controllers
 {
