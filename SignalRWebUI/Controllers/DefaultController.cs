@@ -19,7 +19,7 @@ namespace SignalRWebUI.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> Index()
         {
 			HttpClient client = new HttpClient();
 			HttpResponseMessage response = await client.GetAsync("https://localhost:7073/api/Contact");

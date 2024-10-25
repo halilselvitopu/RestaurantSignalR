@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.BusinessLayer.Abstract;
@@ -13,11 +14,15 @@ namespace SignalRApi.Controllers
     {
         private readonly IBookingService _bookingService;
         private readonly IMapper _mapper;
+        private readonly IValidator<CreateBookingDto> _createBookingValidator;
+        private readonly IValidator<UpdateBookingDto> _updateBookingvalidator;
 
-        public BookingController(IBookingService bookingService, IMapper mapper)
+        public BookingController(IBookingService bookingService, IMapper mapper, IValidator<CreateBookingDto> createBookingValidator, IValidator<UpdateBookingDto> updateBookingvalidator)
         {
             _bookingService = bookingService;
             _mapper = mapper;
+            _createBookingValidator = createBookingValidator;
+            _updateBookingvalidator = updateBookingvalidator;
         }
 
         [HttpGet]
@@ -30,6 +35,12 @@ namespace SignalRApi.Controllers
         [HttpPost]
         public IActionResult AddBooking(CreateBookingDto createBookingDto)
         {
+            var validationResult = _createBookingValidator.Validate(createBookingDto);
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult);
+            }
+
             createBookingDto.Description = "Rezervasyon Alındı";
             var value = _mapper.Map<Booking>(createBookingDto);
             _bookingService.TAdd(value);
@@ -48,6 +59,13 @@ namespace SignalRApi.Controllers
         [HttpPut]
         public IActionResult UpdateBooking(UpdateBookingDto updateBookingDto)
         {
+
+            var validationResult = _updateBookingvalidator.Validate(updateBookingDto);
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult);
+            }
+
             var value = _mapper.Map<Booking>(updateBookingDto);
             _bookingService.TUpdate(value);
             return Ok("Başarıyla güncellendi.");
