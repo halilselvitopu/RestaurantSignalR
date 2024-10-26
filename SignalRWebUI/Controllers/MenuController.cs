@@ -15,8 +15,9 @@ namespace SignalRWebUI.Controllers
             _httpClientFactory = clientFactory;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int id)
         {
+            ViewBag.TableId = id; // TableId'yi ViewBag'e ekledik
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7073/api/Product/ProductListWithCategory");
             if (responseMessage.IsSuccessStatusCode)
@@ -28,11 +29,10 @@ namespace SignalRWebUI.Controllers
             return View();
         }
 
+
         [HttpPost]
-        public async Task<IActionResult> AddBasket(int id)
+        public async Task<IActionResult> AddBasket([FromBody] CreateBasketDto createBasketDto)
         {
-            CreateBasketDto createBasketDto = new CreateBasketDto();
-            createBasketDto.ProductId = id;
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createBasketDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
@@ -43,5 +43,6 @@ namespace SignalRWebUI.Controllers
             }
             return Json(createBasketDto);
         }
+
     }
 }

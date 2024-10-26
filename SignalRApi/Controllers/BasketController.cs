@@ -33,9 +33,10 @@ namespace SignalRApi.Controllers
         {
             var product = _productService.TGetById(createBasketDto.ProductId);
             var newBasket = _mapper.Map<Basket>(createBasketDto);
+            newBasket.TableId = createBasketDto.TableId;
             newBasket.ProductCount = 1;
-            newBasket.Price = product.Price;          
-            newBasket.TableId = 4;
+            newBasket.Price = product.Price;
+            newBasket.TotalPrice = product.Price * newBasket.ProductCount;
             _basketService.TAdd(newBasket);
             return Ok("Sepete Ürün Eklendi");
 

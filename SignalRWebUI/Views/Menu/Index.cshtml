@@ -129,22 +129,20 @@
 
     <script>
         function addToBasket(name, id) {
-           
+            var tableId = '@ViewBag.TableId'; 
+
             $.ajax({
                 type: 'POST',
-                data: JSON.stringify ({ item: id }),
+                data: JSON.stringify({ productId: id, tableId: tableId }),
                 url: "/Menu/AddBasket/" + id,
-                contentType: 'json',
+                contentType: 'application/json',
                 success: function () {
-                    swal( name, "Sepete Eklendi!", "success");
-
+                    swal(name, "Sepete Eklendi!", "success");
                 }
             });
         };
-
-
-
     </script>
+
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
