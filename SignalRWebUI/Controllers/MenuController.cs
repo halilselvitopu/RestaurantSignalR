@@ -17,7 +17,7 @@ namespace SignalRWebUI.Controllers
 
         public async Task<IActionResult> Index(int id)
         {
-            ViewBag.TableId = id; // TableId'yi ViewBag'e ekledik
+            ViewBag.TableId = id; 
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7073/api/Product/ProductListWithCategory");
             if (responseMessage.IsSuccessStatusCode)
@@ -37,6 +37,11 @@ namespace SignalRWebUI.Controllers
             var jsonData = JsonConvert.SerializeObject(createBasketDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var responseMessage = await client.PostAsync("https://localhost:7073/api/Basket", stringContent);
+
+            var client2 = _httpClientFactory.CreateClient();
+            await client.GetAsync("https://localhost:7073/api/Table/ChangeTableStatusToTrue?id=" + createBasketDto.TableId);
+
+
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");

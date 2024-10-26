@@ -10,5 +10,8 @@ namespace SignalR.BusinessLayer.Abstract
 	public interface ITableService : IGenericService<Table>
 	{
 		int TGetTotalTableCount();
-	}
+        void TChangeTableStatusToFalse(int id);
+        void TChangeTableStatusToTrue(int id);
+        
+        }
 }

@@ -33,6 +33,20 @@ namespace SignalRApi.Controllers
             return Ok(_mapper.Map<List<ResultTableDto>>(values));
         }
 
+        [HttpGet("ChangeTableStatusToTrue")]
+        public IActionResult ChangeTableStatusToTrue(int id)
+        {
+            _tableService.TChangeTableStatusToTrue(id);
+            return Ok("İşlem başarılı.");
+        }
+
+        [HttpGet("ChangeTableStatusToFalse")]
+        public IActionResult ChangeTableStatusToFalse(int id)
+        {
+            _tableService.TChangeTableStatusToFalse(id);
+            return Ok("İşlem başarılı.");
+        }
+
         [HttpPost]
         public IActionResult AddTable(CreateTableDto createTableDto)
         {
