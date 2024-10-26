@@ -1,6 +1,7 @@
 using FluentValidation;
 using SignalR.BusinessLayer.Abstract;
 using SignalR.BusinessLayer.Concrete;
+using SignalR.BusinessLayer.Container;
 using SignalR.BusinessLayer.ValidationRules.BookingValidation;
 using SignalR.DataAccessLayer.Abstract;
 using SignalR.DataAccessLayer.Concrete;
@@ -28,57 +29,8 @@ builder.Services.AddSignalR();
 builder.Services.AddDbContext<SignalRContext>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-builder.Services.AddScoped<IAboutDal, EfAboutDal>();
-builder.Services.AddScoped<IAboutService, AboutManager>();
 
-builder.Services.AddScoped<IBookingDal, EfBookingDal>();
-builder.Services.AddScoped<IBookingService, BookingManager>();
-
-builder.Services.AddScoped<ICategoryDal, EfCategoryDal>();
-builder.Services.AddScoped<ICategoryService, CategoryManager>();
-
-builder.Services.AddScoped<IDiscountProductDal, EfDiscountProductDal>();
-builder.Services.AddScoped<IDiscountProductService, DiscountProductManager>();
-
-builder.Services.AddScoped<IFeatureProductDal, EfFeatureProductDal>();
-builder.Services.AddScoped<IFeatureProductService, FeatureProductManager>();
-
-builder.Services.AddScoped<IContactDal, EfContactDal>();
-builder.Services.AddScoped<IContactService, ContactManager>();
-
-builder.Services.AddScoped<IProductDal, EfProductDal>();
-builder.Services.AddScoped<IProductService, ProductManager>();
-
-builder.Services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
-builder.Services.AddScoped<ISocialMediaService, SocialMediaManager>();
-
-builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
-builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
-
-builder.Services.AddScoped<IOrderDal, EfOrderDal>();
-builder.Services.AddScoped<IOrderService, OrderManager>();
-
-builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
-builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
-
-builder.Services.AddScoped<ICashRegisterDal, EfCashRegisterDal>();
-builder.Services.AddScoped<ICashRegisterService, CashRegisterManager>();
-
-builder.Services.AddScoped<ITableDal, EfTableDal>();
-builder.Services.AddScoped<ITableService, TableManager>();
-
-builder.Services.AddScoped<ISliderDal, EfSliderDal>();
-builder.Services.AddScoped<ISliderService, SliderManager>();
-
-builder.Services.AddScoped<IBasketDal, EfBasketDal>();
-builder.Services.AddScoped<IBasketService, BasketManager>();
-
-builder.Services.AddScoped<INotificationDal, EfNotificationDal>();
-builder.Services.AddScoped<INotificationService, NotificationManager>();
-
-builder.Services.AddScoped<IMessageDal, EfMessageDal>();
-builder.Services.AddScoped<IMessageService, MessageManager>();
-
+builder.Services.ContainerDependencies();
 
 builder.Services.AddValidatorsFromAssemblyContaining<CreateBookingValidation>();
 
